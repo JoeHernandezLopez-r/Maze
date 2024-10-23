@@ -1,15 +1,17 @@
 # Maze
 
 This libgdx gradle project only has the src files to make it less bloated. The project itself consists of 
-    - Server which runs first and listens for clients
-    - Clients which enable user to control their character
-    - Connection with sockets and json is used to communicate between the server and the client(s)
-    - Server keeps track of all clients connection
-    - Clients are told what other cliets joins and leave 
-    - Pathfinding Astar and Dijkstra's implementation 
-    - Collision detection 
-    - Map which can be generated with text file "x" is floor and "-" is a wall must be a rectangle
-
+- Server which runs first and listens for clients
+- Clients which enable user to control their character
+- Connection with sockets and JSON is used to communicate between the server and the client(s)
+- Server keeps track of all clients' connections
+- Clients are told when other clients join and leave
+- Pathfinding: A* and Dijkstra's implementation
+- Collision detection
+- Map which can be generated from a text file:
+  - "x" represents the floor
+  - "-" represents a wall
+  - The map must be a rectangle
 
 While the server shares across all clients who join and leave, it does not track their position(s),and because of this, the enemy does not know who to target. Tracking a player's position could be implemented by using the sockets id as IDs, which the server already keeps track of to know what to free when a client exits and only requires the that the clients position be added in what information which is sent to server and that is then added to the announce all players. For choosing who to target the server could choose the closest player and if it is several enemies it would simply be best to make an array of those enemies and iterate through them and then see what player is closest to them for a simple enemy AI using pathfinding which is already implemented. 
 
